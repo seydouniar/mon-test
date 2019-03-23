@@ -1,0 +1,19 @@
+<li [ngClass]="{'list-group-item': true,
+'mx-auto':true,
+'list-group-item-success': postLoveIts > 0,
+'list-group-item-danger': postLoveIts < 0}">
+  <div class="row">
+    <div class="col-xs-7">
+      <h3 [ngStyle]="{color: getColor()}" class="text-left"> {{ postTitle }} </h3>
+    </div>
+    <div class="col-xs-5">
+      <h4 Style="color:gray" class="text-right">{{postDate | async | date: 'short'}}</h4>
+    </div>
+  </div>
+  <p class="text-justify" [ngStyle]="{color: getColor()}">{{postContent}}</p>
+  <div class="text-left">
+    <button class="btn btn-success" (click)="loveIt()">Love it</button>
+    <button class="btn btn-danger" (click)="dontLoveIt()">Don't love it</button>
+    <button class="btn btn-danger pull-right" (click)="deletePost()" >Supprimer</button>
+  </div>
+</li>
